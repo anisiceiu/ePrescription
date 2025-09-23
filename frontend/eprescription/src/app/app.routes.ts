@@ -9,5 +9,9 @@ export const APP_ROUTES: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./features/dashboard/dashboard.routes').then(m => m.DASHBOARD_ROUTES),
   },
+   {
+    path: 'create-precription',
+    loadChildren: () => import('./features/create-prescription/create-prescription.routes').then(m => m.PRESCRIPTION_ROUTES),
+  },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
