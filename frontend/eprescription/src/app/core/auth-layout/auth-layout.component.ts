@@ -11,5 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './auth-layout.component.css'
 })
 export class AuthLayoutComponent {
-
+logout() {
+    localStorage.clear();
+    location.href = '/login';
+  }
 }
