@@ -1,0 +1,85 @@
+<div class="container-fluid app-view p-0">
+    <div class="row g-0 h-100">
+        <!-- Sidebar -->
+        <div id="sidebar" class="col-12 col-md-4 col-lg-3 border-end sidebar">
+            <div class="d-flex align-items-center justify-content-between p-3">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="/images/logo.jpg" width="48px" height="48px" alt="me" class="avatar">
+                    <div>
+                        <div class="fw-bold">You</div>
+                        <small class="text-muted">Available</small>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-sm btn-light me-1" matIconButton [matMenuTriggerFor]="menu"><i
+                            class="bi bi-three-dots-vertical" ></i></button>
+                    <!-- <button class="btn btn-sm btn-light" id="sidebarClose" title="Close" style="display:none"><i
+                class="bi bi-x"></i></button> -->
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>dialpad</mat-icon>
+                            <span>Redial</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>voicemail</mat-icon>
+                            <span>Check voice mail</span>
+                        </button>
+                        <button mat-menu-item>
+                            <mat-icon>notifications_off</mat-icon>
+                            <span>Disable alerts</span>
+                        </button>
+                    </mat-menu>
+                </div>
+            </div>
+
+            <div class="px-3 pb-3">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                    <input id="contactSearch" type="search" class="form-control" placeholder="Search or start new chat">
+                </div>
+            </div>
+
+            <div id="contacts" class="contacts list-group list-group-flush">
+                <!-- contact item -->
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Alice">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="fw-bold">Alice</div>
+                            <small class="text-muted">12:30</small>
+                        </div>
+                        <div class="text-truncate text-muted">Hey — are we meeting today?</div>
+                    </div>
+                </div>
+
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Bob">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="fw-bold">Bob <span class="contact-online" title="online"></span></div>
+                            <small class="text-muted">11:10</small>
+                        </div>
+                        <div class="text-truncate text-muted">I'll send the files now.</div>
+                    </div>
+                </div>
+
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Charlie">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="fw-bold">Charlie</div>
+                            <small class="text-muted">Yesterday</small>
+                        </div>
+                        <div class="text-truncate text-muted">Thanks for the update — great work!</div>
+                    </div>
+                </div>
+
+                <!-- add more contacts as needed -->
+            </div>
+        </div>
+
+        <div class="col-12 col-md-8 col-lg-9 chat-panel bg-white">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

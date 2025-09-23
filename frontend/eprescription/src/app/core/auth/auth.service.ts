@@ -5,7 +5,7 @@ import { TokenStorageService } from './token-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'https://localhost:5001/api/auth'; // 🔹 replace with your backend
+  private apiUrl = 'https://localhost:7096/api/Account'; // 🔹 replace with your backend
 
   constructor(
     private http: HttpClient,

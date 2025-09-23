@@ -11,8 +11,11 @@ namespace ePerscription.Infrastructure.Repositories
 {
     public class DrugRepository: GenericRepository<Drug>, IDrugRepository
     {
+        private readonly EPrescriptionContext _context;
+
         public DrugRepository(EPrescriptionContext context) : base(context)
         {
+            _context = context;
         }
     }
 }
