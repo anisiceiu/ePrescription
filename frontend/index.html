@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prescription</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    .app-view {
+      height: 100vh;
+    }
+
+    .contacts {
+      overflow-y: auto;
+      height: calc(100vh - 140px);
+    }
+
+    .chat-panel {
+      background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem;
+      background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.02));
+    }
+
+    .chat-header {
+      border-bottom: 1px solid rgba(111, 196, 230, 0.06);
+      display: flex;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 767.98px) {
+      .sidebar {
+        position: absolute;
+        z-index: 1030;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 85%;
+        transform: translateX(-100%);
+        transition: transform .25s ease-in-out;
+      }
+
+      .sidebar.show-mobile {
+        transform: translateX(0);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .chat-panel {
+        height: 100vh;
+      }
+    }
+
+    .prescription-card {
+      background: #fff;
+      padding: 0.5rem;
+    }
+
+    .zone-title {
+      font-weight: 600;
+      border-bottom: 2px solid #dee2e6;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.25rem;
+    }
+
+    .rx-symbol {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #198754;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid app-view p-0">
+    <div class="row g-0 h-100">
+      <!-- Sidebar -->
+      <div id="sidebar" class="col-12 col-md-4 col-lg-3 border-end sidebar">
+        <div class="d-flex align-items-center justify-content-between p-3">
+          <div class="d-flex align-items-center gap-2">
+            <img src="./logo.jpg" width="48px" height="48px" alt="me" class="avatar">
+            <div>
+              <div class="fw-bold">You</div>
+              <small class="text-muted">Available</small>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-sm btn-light me-1" title="New chat"><i
+                class="bi bi-three-dots-vertical"></i></button>
+            <button class="btn btn-sm btn-light" id="sidebarClose" title="Close" style="display:none"><i
+                class="bi bi-x"></i></button>
+          </div>
+        </div>
+
+        <div class="px-3 pb-3">
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input id="contactSearch" type="search" class="form-control" placeholder="Search or start new chat">
+          </div>
+        </div>
+
+        <div id="contacts" class="contacts list-group list-group-flush">
+          <!-- contact item -->
+          <div class="list-group-item contact-item d-flex align-items-center" data-name="Alice">
+
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between">
+                <div class="fw-bold">Alice</div>
+                <small class="text-muted">12:30</small>
+              </div>
+              <div class="text-truncate text-muted">Hey — are we meeting today?</div>
+            </div>
+          </div>
+
+          <div class="list-group-item contact-item d-flex align-items-center" data-name="Bob">
+
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between">
+                <div class="fw-bold">Bob <span class="contact-online" title="online"></span></div>
+                <small class="text-muted">11:10</small>
+              </div>
+              <div class="text-truncate text-muted">I'll send the files now.</div>
+            </div>
+          </div>
+
+          <div class="list-group-item contact-item d-flex align-items-center" data-name="Charlie">
+
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between">
+                <div class="fw-bold">Charlie</div>
+                <small class="text-muted">Yesterday</small>
+              </div>
+              <div class="text-truncate text-muted">Thanks for the update — great work!</div>
+            </div>
+          </div>
+
+          <!-- add more contacts as needed -->
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8 col-lg-9 chat-panel bg-white">
+        <div class="chat-header d-flex align-items-center justify-content-between px-3 py-4 ">
+          <div>
+            <h4 class="mb-0">Dr. John Doe</h4>
+            <small class="text-muted">MBBS, MD (Medicine)</small><br>
+            <small class="text-muted">Child Psychologist</small><br>
+            <small class="text-muted">Reg. No: 123456</small>
+          </div>
+          <div class="text-end">
+            <h5 class="mb-0">Clinic Name</h5>
+            <small class="text-muted">123 Main Street, City</small><br>
+            <small class="text-muted">Phone: +880 1234 567890</small>
+          </div>
+        </div>
+        <div class="prescription-card">
+          <div class="row ">
+            <div class="col">
+              <label>Name : Anisuzzaman</label>
+            </div>
+            <div class="col">
+              <label>Age : 25y</label>
+            </div>
+            <div class="col">
+              <label>Sex : Male</label>
+            </div>
+            <div class="col">
+              <label>Date : 02/12/2025</label>
+            </div>
+          </div>
+          <div class="row py-2">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Name" aria-label="First name">
+            </div>
+            <div class="col">
+              <input type="number" class="form-control" placeholder="Age" aria-label="First name">
+            </div>
+            <div class="col">
+              <select class="form-select" id="autoSizingSelect">
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Bi-Sexual</option>
+              </select>
+            </div>
+            <div class="col">
+              <input type="date" class="form-control" placeholder="Date" aria-label="First name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div style="min-height: 60vh;border-right:2px solid #000;">
+
+                <div>
+                  <div class="zone-title">C/C (Chief Complaint)</div>
+                  <ul>
+                    <li>Headache</li>
+                    <li>dizziness</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="zone-title">O/H (Other / Past History)</div>
+                  <ul>
+                    <li>No diabetes</li>
+                    <li>no hypertension</li>
+                    <li>History of seasonal allergies</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="zone-title">O/E (On Examination)</div>
+                  <ul>
+                    <li>BP: 130/85 mmHg</li>
+                    <li>Pulse: 78 bpm</li>
+                    <li>Temp: 98.6°F</li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="zone-title">Investigation</div>
+                  <ul>
+
+                  </ul>
+                </div>
+                <div>
+                  <div class="zone-title">Advice</div>
+                  <ul>
+                    <li>Drink plenty of fluids</li>
+                    <li>Avoid dust exposure</li>
+                    <li>Follow-up after 1 week or if symptoms worsen</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="zone-title"><span class="rx-symbol">℞</span></div>
+              <div>
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Dosage Form</th>
+                      <th scope="col">Drug Name</th>
+                      <th scope="col">Frequency</th>
+                      <th scope="col">Instructions</th>
+                      <th scope="col">Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>Mark</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
