@@ -6,7 +6,7 @@
                 <div class="d-flex align-items-center gap-2">
                     <img src="/images/logo.jpg" width="48px" height="48px" alt="me" class="avatar">
                     <div>
-                        <div class="fw-bold">You</div>
+                        <div class="fw-bold">Admin</div>
                         <small class="text-muted">Available</small>
                     </div>
                 </div>
@@ -16,18 +16,18 @@
                     <!-- <button class="btn btn-sm btn-light" id="sidebarClose" title="Close" style="display:none"><i
                 class="bi bi-x"></i></button> -->
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <mat-icon>dialpad</mat-icon>
-                            <span>Redial</span>
-                        </button>
+                        <a routerLink='/create-precription' mat-menu-item>
+                            <mat-icon>note_add</mat-icon>
+                            <a >Create New</a>
+                        </a>
                         <button mat-menu-item>
                             <mat-icon>voicemail</mat-icon>
                             <span>Check voice mail</span>
                         </button>
-                        <button mat-menu-item>
-                            <mat-icon>notifications_off</mat-icon>
-                            <span>Disable alerts</span>
-                        </button>
+                        <a routerLink='/dashboard' mat-menu-item>
+                            <mat-icon>dashboard</mat-icon>
+                            <span >Dashboard</span>
+                        </a>
                     </mat-menu>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="px-3 pb-3">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-search"></i></span>
-                    <input id="contactSearch" type="search" class="form-control" placeholder="Search or start new chat">
+                    <input id="contactSearch" type="search" class="form-control" placeholder="Search or start new patient">
                 </div>
             </div>
 
