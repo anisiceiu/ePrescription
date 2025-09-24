@@ -35,7 +35,8 @@
       color: #fff!important;
     }
 
-    /* .sidebar{
-    background: linear-gradient(#64e66b, #9198e5);
-    height: 100vh;
-} */
+.input-none{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid seagreen;
+}

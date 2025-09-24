@@ -53,7 +53,7 @@
             <li *ngFor="let cc of ccList">{{cc}}</li>
           </ul>
           <input type="text" placeholder="Search for a CC" [formControl]="ccControl" [matAutocomplete]="auto1"
-            class="example-input">
+            class="example-input input-none">
           <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="onOptionSelected($event,'CC')">
             @for (cc of filteredCC | async; track cc) {
             <mat-option [value]="cc">{{cc}}</mat-option>
@@ -66,7 +66,7 @@
             <li *ngFor="let oh of ohList">{{oh}}</li>
           </ul>
           <input type="text" placeholder="Search for a OH" [formControl]="ohControl" [matAutocomplete]="auto2"
-            class="example-input">
+            class="example-input input-none">
           <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="onOptionSelected($event,'OH')">
             @for (oh of filteredOH | async; track oh) {
             <mat-option [value]="oh">{{oh}}</mat-option>
@@ -79,7 +79,7 @@
             <li *ngFor="let oe of oeList">{{oe}}</li>
           </ul>
           <input type="text" placeholder="Search for a OE" [formControl]="oeControl" [matAutocomplete]="auto3"
-            class="example-input">
+            class="example-input input-none">
           <mat-autocomplete #auto3="matAutocomplete" (optionSelected)="onOptionSelected($event,'OE')">
             @for (oe of filteredOE | async; track oe) {
             <mat-option [value]="oe">{{oe}}</mat-option>
@@ -92,7 +92,7 @@
             <li *ngFor="let inv of invList">{{inv}}</li>
           </ul>
           <input type="text" placeholder="Search for a Investigation" [formControl]="invControl"
-            [matAutocomplete]="auto4" class="example-input">
+            [matAutocomplete]="auto4" class="example-input input-none">
           <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="onOptionSelected($event,'INV')">
             @for (inv of filteredInv | async; track inv) {
             <mat-option [value]="inv">{{inv}}</mat-option>
@@ -105,7 +105,7 @@
             <li *ngFor="let adv of advList">{{adv}}</li>
           </ul>
           <input type="text" placeholder="Search for a Advice" [formControl]="advControl"
-            [matAutocomplete]="auto5" class="example-input">
+            [matAutocomplete]="auto5" class="example-input input-none">
           <mat-autocomplete #auto5="matAutocomplete" (optionSelected)="onOptionSelected($event,'ADV')">
             @for (adv of filteredAdv | async; track adv) {
             <mat-option [value]="adv">{{adv}}</mat-option>
