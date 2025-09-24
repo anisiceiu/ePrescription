@@ -4,11 +4,15 @@
       align-items: center;
       padding: 0 1rem;
       background: lightblue;
-      color:white;
+      color: white;
     }
+
     .prescription-card {
       background: #fff;
-      padding: 0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      overflow-y: auto;
+      height: 100vh;
     }
 
     .zone-title {
@@ -17,13 +21,20 @@
       margin-top: 1.5rem;
       margin-bottom: 0.75rem;
       padding-bottom: 0.25rem;
-      color:seagreen;
+      color: seagreen;
     }
 
     .rx-symbol {
       font-size: 2rem;
       font-weight: bold;
       color: #198754;
+    }
+
+    .prescription-header {
+      position: sticky;
+      top: 0;
+      background-color: lightseagreen;
+      color: #fff!important;
     }
 
     /* .sidebar{

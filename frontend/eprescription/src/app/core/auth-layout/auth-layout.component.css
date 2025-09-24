@@ -5,6 +5,7 @@
 
     .app-view {
       height: 100vh;
+      overflow: hidden;
     }
 
     .contacts {
