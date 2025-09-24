@@ -4,6 +4,7 @@ using ePerscription.Api.Configuration;
 using ePerscription.Application.DTOs;
 using ePerscription.Application.Interfaces;
 using ePerscription.Application.Services;
+using ePerscription.Domain.Entities;
 using ePerscription.Domain.Interfaces;
 using ePerscription.Infrastructure.Data;
 using ePerscription.Infrastructure.Repositories;
@@ -78,6 +79,7 @@ namespace ePerscription.Api
             builder.Services.AddScoped<IFrequencyRepository, FrequencyRepository>();
             builder.Services.AddScoped<IStrengthRepository, StrengthRepository>();
             builder.Services.AddScoped<IInstructionRepository, InstructionRepository>();
+            builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 
             builder.Services.AddScoped<IDrugRepository, DrugRepository>();
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
