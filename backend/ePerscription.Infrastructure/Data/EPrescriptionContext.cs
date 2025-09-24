@@ -21,6 +21,10 @@ namespace ePerscription.Infrastructure.Data
         public DbSet<Prescription>  Prescriptions { get; set; }
         public DbSet<PrescriptionItem>  PrescriptionItems { get; set; }
         public DbSet<User>  Users { get; set; }
+        public DbSet<DosageForm> DosageForms { get; set; }
+        public DbSet<Frequency> Frequencies { get; set; }
+        public DbSet<Instruction> Instructions { get; set; }
+        public DbSet<Strength> Strengths { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

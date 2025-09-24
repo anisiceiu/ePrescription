@@ -65,16 +65,25 @@ namespace ePerscription.Api
             {
                 cfg.CreateMap<DrugDto, Domain.Entities.Drug>().ReverseMap();
                 cfg.CreateMap<UserDto, Domain.Entities.User>().ReverseMap();
+                cfg.CreateMap<DosageFormDto, Domain.Entities.DosageForm>().ReverseMap();
+                cfg.CreateMap<FrequencyDto, Domain.Entities.Frequency>().ReverseMap();
+                cfg.CreateMap<InstructionDto, Domain.Entities.Instruction>().ReverseMap();
+                cfg.CreateMap<StrengthDto, Domain.Entities.Strength>().ReverseMap();
             });
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
 
             // Dependency Injection
+            builder.Services.AddScoped<IDosageFormRepository, DosageFormRepository>();
+            builder.Services.AddScoped<IFrequencyRepository, FrequencyRepository>();
+            builder.Services.AddScoped<IStrengthRepository, StrengthRepository>();
+            builder.Services.AddScoped<IInstructionRepository, InstructionRepository>();
 
             builder.Services.AddScoped<IDrugRepository, DrugRepository>();
             builder.Services.AddScoped<IAccountRepository, AccountRepository>();
             builder.Services.AddScoped<IDrugService, DrugService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IDosageFormService, DosageFormService>();
             // DB Context
             builder.Services.AddDbContext<EPrescriptionContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
