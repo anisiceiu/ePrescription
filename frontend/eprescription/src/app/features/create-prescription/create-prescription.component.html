@@ -49,7 +49,7 @@
       <div style="min-height: 60vh">
         <div>
           <div class="zone-title">C/C (Chief Complaint)</div>
-          <ul >
+          <ul>
             <li *ngFor="let cc of ccList">{{cc}}</li>
           </ul>
           <input type="text" placeholder="Search for a CC" [formControl]="ccControl" [matAutocomplete]="auto1"
@@ -62,7 +62,7 @@
         </div>
         <div>
           <div class="zone-title">O/H (Other / Past History)</div>
-          <ul >
+          <ul>
             <li *ngFor="let oh of ohList">{{oh}}</li>
           </ul>
           <input type="text" placeholder="Search for a OH" [formControl]="ohControl" [matAutocomplete]="auto2"
@@ -76,24 +76,41 @@
         <div>
           <div class="zone-title">O/E (On Examination)</div>
           <ul>
-            <li>BP: 130/85 mmHg</li>
-            <li>Pulse: 78 bpm</li>
-            <li>Temp: 98.6°F</li>
+            <li *ngFor="let oe of oeList">{{oe}}</li>
           </ul>
+          <input type="text" placeholder="Search for a OE" [formControl]="oeControl" [matAutocomplete]="auto3"
+            class="example-input">
+          <mat-autocomplete #auto3="matAutocomplete" (optionSelected)="onOptionSelected($event,'OE')">
+            @for (oe of filteredOE | async; track oe) {
+            <mat-option [value]="oe">{{oe}}</mat-option>
+            }
+          </mat-autocomplete>
         </div>
         <div>
           <div class="zone-title">Investigation</div>
           <ul>
-
+            <li *ngFor="let inv of invList">{{inv}}</li>
           </ul>
+          <input type="text" placeholder="Search for a Investigation" [formControl]="invControl"
+            [matAutocomplete]="auto4" class="example-input">
+          <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="onOptionSelected($event,'INV')">
+            @for (inv of filteredInv | async; track inv) {
+            <mat-option [value]="inv">{{inv}}</mat-option>
+            }
+          </mat-autocomplete>
         </div>
         <div>
           <div class="zone-title">Advice</div>
           <ul>
-            <li>Drink plenty of fluids</li>
-            <li>Avoid dust exposure</li>
-            <li>Follow-up after 1 week or if symptoms worsen</li>
+            <li *ngFor="let adv of advList">{{adv}}</li>
           </ul>
+          <input type="text" placeholder="Search for a Advice" [formControl]="advControl"
+            [matAutocomplete]="auto5" class="example-input">
+          <mat-autocomplete #auto5="matAutocomplete" (optionSelected)="onOptionSelected($event,'ADV')">
+            @for (adv of filteredAdv | async; track adv) {
+            <mat-option [value]="adv">{{adv}}</mat-option>
+            }
+          </mat-autocomplete>
         </div>
 
       </div>

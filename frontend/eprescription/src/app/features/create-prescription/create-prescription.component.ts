@@ -87,10 +87,18 @@ export class CreatePrescriptionComponent {
 
   oeControl = new FormControl('');
   oeOptions: string[] = this.data.onExamination;
+  filteredOE: Observable<string[]> = null!;
+  oeList: string[] = [];
+
   invControl = new FormControl('');
   invOptions: string[] = this.data.investigations;
+  filteredInv: Observable<string[]> = null!;
+  invList: string[] = [];
+
   advControl = new FormControl('');
   advOptions: string[] = this.data.advice;
+  filteredAdv: Observable<string[]> = null!;
+  advList: string[] = [];
 
   constructor(private fb: FormBuilder) {
     this.patientForm = this.fb.group({
@@ -111,6 +119,21 @@ export class CreatePrescriptionComponent {
       startWith(''),
       map(value => this._filterOH(value || '')),
     );
+
+    this.filteredOE = this.oeControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterOE(value || '')),
+    );
+
+    this.filteredInv = this.invControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterInv(value || '')),
+    );
+
+    this.filteredAdv = this.advControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filterAdv(value || '')),
+    );
   }
 
   private _filterCC(value: string): string[] {
@@ -121,6 +144,21 @@ export class CreatePrescriptionComponent {
   private _filterOH(value: string): string[] {
     const filterValue = this._normalizeValue(value);
     return this.ohOptions.filter(cc => this._normalizeValue(cc).includes(filterValue));
+  }
+
+  private _filterOE(value: string): string[] {
+    const filterValue = this._normalizeValue(value);
+    return this.oeOptions.filter(cc => this._normalizeValue(cc).includes(filterValue));
+  }
+
+  private _filterInv(value: string): string[] {
+    const filterValue = this._normalizeValue(value);
+    return this.invOptions.filter(cc => this._normalizeValue(cc).includes(filterValue));
+  }
+
+  private _filterAdv(value: string): string[] {
+    const filterValue = this._normalizeValue(value);
+    return this.advOptions.filter(adv => this._normalizeValue(adv).includes(filterValue));
   }
 
   private _normalizeValue(value: string): string {
@@ -135,14 +173,32 @@ export class CreatePrescriptionComponent {
       }
       this.ccControl.setValue(null);
     }
-    else if (type == "OH")
-    {
+    else if (type == "OH") {
       if (!this.ohList.includes(event.option.value)) {
         this.ohList.push(event.option.value);
       }
       this.ohControl.setValue(null);
     }
 
+    else if (type == "OE") {
+      if (!this.oeList.includes(event.option.value)) {
+        this.oeList.push(event.option.value);
+      }
+      this.oeControl.setValue(null);
+    }
+
+    else if (type == "INV") {
+      if (!this.invList.includes(event.option.value)) {
+        this.invList.push(event.option.value);
+      }
+      this.invControl.setValue(null);
+    }
+    else if (type == "ADV") {
+      if (!this.advList.includes(event.option.value)) {
+        this.advList.push(event.option.value);
+      }
+      this.advControl.setValue(null);
+    }
   }
 
 }
