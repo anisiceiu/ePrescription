@@ -11,6 +11,7 @@
       background: #fff;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
+      font-size: small;
     }
 
     .zone-title {
@@ -39,4 +40,9 @@
   border: none;
   outline: none;
   border-bottom: 1px solid seagreen;
+}
+
+.rx-zone{
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
 }

@@ -76,6 +76,55 @@ export class CreatePrescriptionComponent {
     ]
   };
 
+  frequencies: string[] = [
+    '1+0+0', '0+1+0', '0+0+1',
+    '1+1+0', '1+0+1', '0+1+1',
+    '1+1+1', '½+½+0', '½+0+½',
+    '0+½+½', '½+½+½', '2+0+0',
+    '0+2+0', '0+0+2', '2+1+0',
+    '1+2+1', 'SOS', 'HS', 'OD',
+    'BD', 'TDS', 'QID'
+  ];
+
+  instructions: string[] = [
+    'After meal',
+    'Before meal',
+    'With meal',
+    'Empty stomach',
+    'At bedtime',
+    'Every 6 hours',
+    'Every 8 hours',
+    'Every 12 hours',
+    'Once daily in the morning',
+    'Once daily at night',
+    'As needed (SOS)',
+    'Immediately after food',
+    'Before sleep',
+    'With a full glass of water',
+    'Do not take with milk',
+    'Avoid alcohol',
+    'Take with food to avoid gastric upset',
+    'Take on an empty stomach for better absorption',
+    'Take at the same time every day',
+    'Do not stop abruptly without doctor’s advice'
+  ];
+
+  durations: string[]=[
+    "3 days",
+    "5 days",
+    "7 days",
+    "10 days",
+    "14 days (2 weeks)",
+    "21 days (3 weeks)",
+    "1 month",
+    "2 months",
+    "3 months",
+    "6 months",
+    "As directed by physician",
+    "Until symptoms resolve",
+    "Long term (chronic use)"
+  ];
+
   ccControl = new FormControl('');
   ccOptions: string[] = this.data.chiefComplaints;
   filteredCC: Observable<string[]> = null!;
@@ -245,6 +294,21 @@ export class CreatePrescriptionComponent {
   }
 
   displayFn(drug: any): string {
-    return drug && drug.name ? drug.name : '';
+    return drug && drug.name ? drug.name + " " + drug.strength + " " + drug.unit : '';
+  }
+
+  frequencyCtrl = new FormControl('');
+  instructionCtrl = new FormControl('');
+  durationCtrl = new FormControl('');
+
+  onAddClick()
+  {
+    let dosageForm=this.control.value;
+    let drug = this.controlDrug.value;
+    let frequency = this.frequencyCtrl.value;
+    let duration = this.durationCtrl.value;
+    let instruction = this.instructionCtrl.value;
+    let content = `${dosageForm} ${drug.name} (${drug.strength}${drug.unit}) ${frequency} ${duration} ${instruction}`;
+    console.log(content);
   }
 }

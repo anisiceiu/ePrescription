@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   exports: [
@@ -21,7 +22,8 @@ import {MatAutocompleteModule } from '@angular/material/autocomplete';
     MatIconModule,
     MatButtonToggleModule,
     MatDividerModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule {}

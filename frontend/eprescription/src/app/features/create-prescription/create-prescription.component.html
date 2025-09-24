@@ -45,7 +45,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div>
         <div>
           <div class="zone-title">C/C (Chief Complaint)</div>
@@ -115,9 +115,12 @@
 
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="zone-title"><span class="rx-symbol">℞</span></div>
       <div>
+        <ol>
+         <li>Tablet Aspiren 80mg </li>
+        </ol>
         <table class="table table-sm">
           <thead>
             <tr>
@@ -130,12 +133,12 @@
           </thead>
           <tbody>
             <tr>
-              <td> 
+              <td>
                 <input type="text" placeholder="Search dosage form" [formControl]="control" [matAutocomplete]="auto"
                   class="example-input input-none">
                 <mat-autocomplete #auto="matAutocomplete">
-                  @for (street of filteredDosage | async; track street) {
-                  <mat-option [value]="street">{{street}}</mat-option>
+                  @for (dosage of filteredDosage | async; track dosage) {
+                  <mat-option [value]="dosage">{{dosage}}</mat-option>
                   }
                 </mat-autocomplete>
               </td>
@@ -148,13 +151,31 @@
                   }
                 </mat-autocomplete>
               </td>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>Mark</td>
+              <td>
+                <mat-select [formControl]="frequencyCtrl">
+                  @for (fre of frequencies; track fre) {
+                  <mat-option [value]="fre">{{fre}}</mat-option>
+                  }
+                </mat-select>
+              </td>
+              <td>
+                <mat-select [formControl]="instructionCtrl">>
+                  @for (ins of instructions; track ins) {
+                  <mat-option [value]="ins">{{ins}}</mat-option>
+                  }
+                </mat-select>
+              </td>
+              <td>
+                <mat-select [formControl]="durationCtrl">
+                  @for (du of durations; track du) {
+                  <mat-option [value]="du">{{du}}</mat-option>
+                  }
+                </mat-select>
+              </td>
             </tr>
           </tbody>
         </table>
-
+       <button (click)="onAddClick()" mat-button="filled">Add</button>
       </div>
     </div>
   </div>
