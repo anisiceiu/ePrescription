@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../shared/material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { map, Observable, startWith } from 'rxjs';
+import { map, Observable, of, startWith } from 'rxjs';
+import { HttpService } from '../../core/services/http.service';
 
 @Component({
   selector: 'app-create-prescription',
@@ -100,13 +101,22 @@ export class CreatePrescriptionComponent {
   filteredAdv: Observable<string[]> = null!;
   advList: string[] = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpService) {
     this.patientForm = this.fb.group({
       name: ['', Validators.required],
       age: ['', [Validators.required, Validators.min(0)]],
       sex: ['', Validators.required],
       date: ['', Validators.required]
     });
+
+    http.get<any[]>('DosageForm').subscribe(data => {
+      this.dosageForms = data.map(d => d.name);
+    });
+
+    http.get<any[]>('Drugs').subscribe(data => {
+      this.drugs = data;
+    });
+
   }
 
   ngOnInit() {
@@ -134,6 +144,21 @@ export class CreatePrescriptionComponent {
       startWith(''),
       map(value => this._filterAdv(value || '')),
     );
+
+    this.filteredDosage = this.control.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+
+
+    this.filteredDrug = this.controlDrug.valueChanges.pipe(
+      startWith<any | string | null>(''),   // start with empty string instead of null
+      map(value => {
+        const name = typeof value === 'string' ? value : value?.name;
+        return name ? this._filterDrug(name) : this.drugs.slice();
+      })
+    );
+
   }
 
   private _filterCC(value: string): string[] {
@@ -201,4 +226,25 @@ export class CreatePrescriptionComponent {
     }
   }
 
+
+  //Test UI
+  control = new FormControl('');
+  dosageForms: string[] = [];
+  filteredDosage: Observable<string[]> = null!;
+  private _filter(value: string): string[] {
+    const filterValue = this._normalizeValue(value);
+    return this.dosageForms.filter(dosage => this._normalizeValue(dosage).includes(filterValue));
+  }
+
+  controlDrug = new FormControl<any | string>('');
+  drugs: any[] = [];
+  filteredDrug: Observable<any[]> = null!;
+  private _filterDrug(name: string): any[] {
+    const filterValue = this._normalizeValue(name);
+    return this.drugs.filter(drug => this._normalizeValue(drug.name).includes(filterValue));
+  }
+
+  displayFn(drug: any): string {
+    return drug && drug.name ? drug.name : '';
+  }
 }

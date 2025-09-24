@@ -46,7 +46,7 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <div >
+      <div>
         <div>
           <div class="zone-title">C/C (Chief Complaint)</div>
           <ul>
@@ -104,8 +104,8 @@
           <ul>
             <li *ngFor="let adv of advList">{{adv}}</li>
           </ul>
-          <input type="text" placeholder="Search for a Advice" [formControl]="advControl"
-            [matAutocomplete]="auto5" class="example-input input-none">
+          <input type="text" placeholder="Search for a Advice" [formControl]="advControl" [matAutocomplete]="auto5"
+            class="example-input input-none">
           <mat-autocomplete #auto5="matAutocomplete" (optionSelected)="onOptionSelected($event,'ADV')">
             @for (adv of filteredAdv | async; track adv) {
             <mat-option [value]="adv">{{adv}}</mat-option>
@@ -121,7 +121,6 @@
         <table class="table table-sm">
           <thead>
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Dosage Form</th>
               <th scope="col">Drug Name</th>
               <th scope="col">Frequency</th>
@@ -131,15 +130,31 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
+              <td> 
+                <input type="text" placeholder="Search dosage form" [formControl]="control" [matAutocomplete]="auto"
+                  class="example-input input-none">
+                <mat-autocomplete #auto="matAutocomplete">
+                  @for (street of filteredDosage | async; track street) {
+                  <mat-option [value]="street">{{street}}</mat-option>
+                  }
+                </mat-autocomplete>
+              </td>
+              <td>
+                <input type="text" placeholder="Search drug" [formControl]="controlDrug" [matAutocomplete]="auto10"
+                  class="example-input input-none">
+                <mat-autocomplete #auto10="matAutocomplete" [displayWith]="displayFn">
+                  @for (drug of filteredDrug | async; track drug) {
+                  <mat-option [value]="drug">{{drug.name}} {{drug.strength}} {{drug.unit}}</mat-option>
+                  }
+                </mat-autocomplete>
+              </td>
               <td>Mark</td>
               <td>Otto</td>
               <td>Mark</td>
             </tr>
           </tbody>
         </table>
+
       </div>
     </div>
   </div>
