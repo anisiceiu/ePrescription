@@ -1,119 +1,129 @@
- <div class="chat-header d-flex align-items-center justify-content-between px-3 py-4 ">
-          <div>
-            <h4 class="mb-0">Dr. John Doe</h4>
-            <small class="text-muted">MBBS, MD (Medicine)</small><br>
-            <small class="text-muted">Child Psychologist</small><br>
-            <small class="text-muted">Reg. No: 123456</small>
-          </div>
-          <div class="text-end">
-            <h5 class="mb-0">Clinic Name</h5>
-            <small class="text-muted">123 Main Street, City</small><br>
-            <small class="text-muted">Phone: +880 1234 567890</small>
-          </div>
+<div class="chat-header d-flex align-items-center justify-content-between px-3 py-4 ">
+  <div>
+    <h4 class="mb-0">Dr. John Doe</h4>
+    <small class="text-muted">MBBS, MD (Medicine)</small><br>
+    <small class="text-muted">Child Psychologist</small><br>
+    <small class="text-muted">Reg. No: 123456</small>
+  </div>
+  <div class="text-end">
+    <h5 class="mb-0">Clinic Name</h5>
+    <small class="text-muted">123 Main Street, City</small><br>
+    <small class="text-muted">Phone: +880 1234 567890</small>
+  </div>
+</div>
+<div class="prescription-card">
+  <div class="row" style="color:seagreen;font-weight:500">
+    <div class="col">
+      <label>Name : {{patientForm.get('name')?.value}}</label>
+    </div>
+    <div class="col">
+      <label>Age : {{patientForm.get('age')?.value || "..."}}y</label>
+    </div>
+    <div class="col">
+      <label>Sex : {{patientForm.get('sex')?.value}}</label>
+    </div>
+    <div class="col">
+      <label>Date : {{patientForm.get('date')?.value}}</label>
+    </div>
+  </div>
+  <div [formGroup]="patientForm" class="row py-2">
+    <div class="col">
+      <input type="text" formControlName="name" class="form-control" placeholder="Name" aria-label="First name">
+    </div>
+    <div class="col">
+      <input type="number" formControlName="age" class="form-control" placeholder="Age" aria-label="First name">
+    </div>
+    <div class="col">
+      <select formControlName="sex" class="form-select" id="autoSizingSelect">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Bi-Sexual">Bi-Sexual</option>
+      </select>
+    </div>
+    <div class="col">
+      <input type="date" formControlName="date" class="form-control" placeholder="Date" aria-label="First name">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div style="min-height: 60vh">
+        <div>
+          <div class="zone-title">C/C (Chief Complaint)</div>
+          <ul >
+            <li *ngFor="let cc of ccList">{{cc}}</li>
+          </ul>
+          <input type="text" placeholder="Search for a CC" [formControl]="ccControl" [matAutocomplete]="auto1"
+            class="example-input">
+          <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="onOptionSelected($event,'CC')">
+            @for (cc of filteredCC | async; track cc) {
+            <mat-option [value]="cc">{{cc}}</mat-option>
+            }
+          </mat-autocomplete>
         </div>
-        <div class="prescription-card">
-          <div class="row ">
-            <div class="col">
-              <label>Name : Anisuzzaman</label>
-            </div>
-            <div class="col">
-              <label>Age : 25y</label>
-            </div>
-            <div class="col">
-              <label>Sex : Male</label>
-            </div>
-            <div class="col">
-              <label>Date : 02/12/2025</label>
-            </div>
-          </div>
-          <div class="row py-2">
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Name" aria-label="First name">
-            </div>
-            <div class="col">
-              <input type="number" class="form-control" placeholder="Age" aria-label="First name">
-            </div>
-            <div class="col">
-              <select class="form-select" id="autoSizingSelect">
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Bi-Sexual</option>
-              </select>
-            </div>
-            <div class="col">
-              <input type="date" class="form-control" placeholder="Date" aria-label="First name">
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div style="min-height: 60vh;border-right:2px solid #000;">
+        <div>
+          <div class="zone-title">O/H (Other / Past History)</div>
+          <ul >
+            <li *ngFor="let oh of ohList">{{oh}}</li>
+          </ul>
+          <input type="text" placeholder="Search for a OH" [formControl]="ohControl" [matAutocomplete]="auto2"
+            class="example-input">
+          <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="onOptionSelected($event,'OH')">
+            @for (oh of filteredOH | async; track oh) {
+            <mat-option [value]="oh">{{oh}}</mat-option>
+            }
+          </mat-autocomplete>
+        </div>
+        <div>
+          <div class="zone-title">O/E (On Examination)</div>
+          <ul>
+            <li>BP: 130/85 mmHg</li>
+            <li>Pulse: 78 bpm</li>
+            <li>Temp: 98.6°F</li>
+          </ul>
+        </div>
+        <div>
+          <div class="zone-title">Investigation</div>
+          <ul>
 
-                <div>
-                  <div class="zone-title">C/C (Chief Complaint)</div>
-                  <ul>
-                    <li>Headache</li>
-                    <li>dizziness</li>
-                  </ul>
-                </div>
-                <div>
-                  <div class="zone-title">O/H (Other / Past History)</div>
-                  <ul>
-                    <li>No diabetes</li>
-                    <li>no hypertension</li>
-                    <li>History of seasonal allergies</li>
-                  </ul>
-                </div>
-                <div>
-                  <div class="zone-title">O/E (On Examination)</div>
-                  <ul>
-                    <li>BP: 130/85 mmHg</li>
-                    <li>Pulse: 78 bpm</li>
-                    <li>Temp: 98.6°F</li>
-                  </ul>
-                </div>
-                <div>
-                  <div class="zone-title">Investigation</div>
-                  <ul>
+          </ul>
+        </div>
+        <div>
+          <div class="zone-title">Advice</div>
+          <ul>
+            <li>Drink plenty of fluids</li>
+            <li>Avoid dust exposure</li>
+            <li>Follow-up after 1 week or if symptoms worsen</li>
+          </ul>
+        </div>
 
-                  </ul>
-                </div>
-                <div>
-                  <div class="zone-title">Advice</div>
-                  <ul>
-                    <li>Drink plenty of fluids</li>
-                    <li>Avoid dust exposure</li>
-                    <li>Follow-up after 1 week or if symptoms worsen</li>
-                  </ul>
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="zone-title"><span class="rx-symbol">℞</span></div>
-              <div>
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Dosage Form</th>
-                      <th scope="col">Drug Name</th>
-                      <th scope="col">Frequency</th>
-                      <th scope="col">Instructions</th>
-                      <th scope="col">Duration</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>Mark</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div> 
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="zone-title"><span class="rx-symbol">℞</span></div>
+      <div>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Dosage Form</th>
+              <th scope="col">Drug Name</th>
+              <th scope="col">Frequency</th>
+              <th scope="col">Instructions</th>
+              <th scope="col">Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>Mark</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

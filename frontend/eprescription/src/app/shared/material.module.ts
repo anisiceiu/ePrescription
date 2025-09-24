@@ -6,6 +6,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   exports: [
@@ -16,6 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatToolbarModule,
     MatMenuModule,
     MatIconModule,
+    MatButtonToggleModule,
+    MatDividerModule,
+    MatAutocompleteModule
   ]
 })
 export class MaterialModule {}
