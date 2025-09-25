@@ -75,3 +75,7 @@
     th {
       font-weight: normal;
     }
+
+    .mat-mdc-option {
+      font-size: small!important;
+    }
