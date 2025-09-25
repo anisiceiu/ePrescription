@@ -6,8 +6,8 @@
                 <div class="d-flex align-items-center gap-2">
                     <img src="/images/logo.jpg" width="48px" height="48px" alt="me" class="avatar">
                     <div>
-                        <div class="fw-bold">Admin</div>
-                        <small class="text-muted">Available</small>
+                        <div class="fw-bold text-warning">Administrator</div>
+                        <small class="text-warning">Available</small>
                     </div>
                 </div>
                 <div>
@@ -35,7 +35,7 @@
                     </mat-menu>
                 </div>
             </div>
-            <div class="px-3 pb-3 text-center">
+            <div class="px-3 pb-3 text-center text-white">
                 <mat-button-toggle-group [(ngModel)]="sidelistType" name="favoriteColor" aria-label="Favorite Color">
                     <mat-button-toggle value="patient">Patient</mat-button-toggle>
                     <mat-button-toggle value="template">Template</mat-button-toggle>
@@ -44,8 +44,7 @@
             <div class="px-3 pb-3">
                 <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-search"></i></span>
-                    <input id="contactSearch" type="search" class="form-control"
-                        placeholder="Search {{sidelistType}}">
+                    <input id="contactSearch" type="search" class="form-control" placeholder="Search {{sidelistType}}">
                 </div>
             </div>
 
@@ -55,18 +54,58 @@
 
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between">
-                            <div class="fw-bold">Alice Boby</div>
+                            <div class="contact-title">Alice Boby</div>
                             <small class="text-muted">+8809765332</small>
                         </div>
                         <div class="text-truncate text-muted">123 Main Street, City,NY</div>
                     </div>
                 </div>
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Alice">
 
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="contact-title">Alice Boby</div>
+                            <small class="text-muted">+8809765332</small>
+                        </div>
+                        <div class="text-truncate text-muted">123 Main Street, City,NY</div>
+                    </div>
+                </div>
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Alice">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="contact-title">Alice Boby</div>
+                            <small class="text-muted">+8809765332</small>
+                        </div>
+                        <div class="text-truncate text-muted">123 Main Street, City,NY</div>
+                    </div>
+                </div>
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Alice">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="contact-title">Alice Boby</div>
+                            <small class="text-muted">+8809765332</small>
+                        </div>
+                        <div class="text-truncate text-muted">123 Main Street, City,NY</div>
+                    </div>
+                </div>
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Alice">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="contact-title">Alice Boby</div>
+                            <small class="text-muted">+8809765332</small>
+                        </div>
+                        <div class="text-truncate text-muted">123 Main Street, City,NY</div>
+                    </div>
+                </div>
                 <div class="list-group-item contact-item d-flex align-items-center" data-name="Bob">
 
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between">
-                            <div class="fw-bold">Bob <span class="contact-online" title="online"></span></div>
+                            <div class="contact-title">Bob <span class="contact-online" title="online"></span>
+                            </div>
                             <small class="text-muted">457756565</small>
                         </div>
                         <div class="text-truncate text-muted">House #12, Road #5, Dhanmondi,Dhaka</div>
@@ -77,13 +116,32 @@
 
                     <div class="flex-grow-1">
                         <div class="d-flex justify-content-between">
-                            <div class="fw-bold">Charlie</div>
+                            <div class="contact-title">Charlie</div>
                             <small class="text-muted">234242424</small>
                         </div>
                         <div class="text-truncate text-muted">House #12, Road #5, Dhanmondi,Dhaka</div>
                     </div>
                 </div>
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Charlie">
 
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="contact-title">Charlie</div>
+                            <small class="text-muted">234242424</small>
+                        </div>
+                        <div class="text-truncate text-muted">House #12, Road #5, Dhanmondi,Dhaka</div>
+                    </div>
+                </div>
+                <div class="list-group-item contact-item d-flex align-items-center" data-name="Charlie">
+
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between">
+                            <div class="contact-title">Charlie</div>
+                            <small class="text-muted">234242424</small>
+                        </div>
+                        <div class="text-truncate text-muted">House #12, Road #5, Dhanmondi,Dhaka</div>
+                    </div>
+                </div>
                 <!-- add more contacts as needed -->
             </div>
         </div>
