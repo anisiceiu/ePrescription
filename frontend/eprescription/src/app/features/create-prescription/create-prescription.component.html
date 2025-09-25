@@ -11,7 +11,7 @@
     <small class="text-white">Phone: +880 1234 567890</small>
   </div>
 </div>
-<div class="prescription-card">
+<div id="doPrint" class="prescription-card">
   <div class="row prescription-header" style="color:seagreen;font-weight:500">
     <div class="col">
       <label>Name : {{patientForm.get('name')?.value}}</label>
@@ -26,7 +26,7 @@
       <label>Date : {{patientForm.get('date')?.value}}</label>
     </div>
   </div>
-  <div [formGroup]="patientForm" class="row py-2">
+  <div class="no-print" [formGroup]="patientForm" class="row py-2">
     <div class="col">
       <input type="text" formControlName="name" class="form-control" placeholder="Name" aria-label="First name">
     </div>
@@ -45,7 +45,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-3">
       <div>
         <div>
           <div class="zone-title">C/C (Chief Complaint)</div>
@@ -53,7 +53,7 @@
             <li *ngFor="let cc of ccList">{{cc}}</li>
           </ul>
           <input type="text" placeholder="Search for a CC" [formControl]="ccControl" [matAutocomplete]="auto1"
-            class="example-input input-none">
+            class="example-input input-none no-print">
           <mat-autocomplete #auto1="matAutocomplete" (optionSelected)="onOptionSelected($event,'CC')">
             @for (cc of filteredCC | async; track cc) {
             <mat-option [value]="cc">{{cc}}</mat-option>
@@ -66,7 +66,7 @@
             <li *ngFor="let oh of ohList">{{oh}}</li>
           </ul>
           <input type="text" placeholder="Search for a OH" [formControl]="ohControl" [matAutocomplete]="auto2"
-            class="example-input input-none">
+            class="example-input input-none no-print">
           <mat-autocomplete #auto2="matAutocomplete" (optionSelected)="onOptionSelected($event,'OH')">
             @for (oh of filteredOH | async; track oh) {
             <mat-option [value]="oh">{{oh}}</mat-option>
@@ -79,7 +79,7 @@
             <li *ngFor="let oe of oeList">{{oe}}</li>
           </ul>
           <input type="text" placeholder="Search for a OE" [formControl]="oeControl" [matAutocomplete]="auto3"
-            class="example-input input-none">
+            class="example-input input-none no-print">
           <mat-autocomplete #auto3="matAutocomplete" (optionSelected)="onOptionSelected($event,'OE')">
             @for (oe of filteredOE | async; track oe) {
             <mat-option [value]="oe">{{oe}}</mat-option>
@@ -92,7 +92,7 @@
             <li *ngFor="let inv of invList">{{inv}}</li>
           </ul>
           <input type="text" placeholder="Search for a Investigation" [formControl]="invControl"
-            [matAutocomplete]="auto4" class="example-input input-none">
+            [matAutocomplete]="auto4" class="example-input input-none no-print">
           <mat-autocomplete #auto4="matAutocomplete" (optionSelected)="onOptionSelected($event,'INV')">
             @for (inv of filteredInv | async; track inv) {
             <mat-option [value]="inv">{{inv}}</mat-option>
@@ -105,7 +105,7 @@
             <li *ngFor="let adv of advList">{{adv}}</li>
           </ul>
           <input type="text" placeholder="Search for a Advice" [formControl]="advControl" [matAutocomplete]="auto5"
-            class="example-input input-none">
+            class="example-input input-none no-print">
           <mat-autocomplete #auto5="matAutocomplete" (optionSelected)="onOptionSelected($event,'ADV')">
             @for (adv of filteredAdv | async; track adv) {
             <mat-option [value]="adv">{{adv}}</mat-option>
@@ -115,7 +115,7 @@
 
       </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-8">
       <div class="zone-title"><span class="rx-symbol">℞</span></div>
       <div>
         <ol class="medicine">
@@ -124,7 +124,7 @@
           {{item.frequency}} {{item.instructions}} {{item.duration}}
         </li>
         </ol>
-        <table class="table table-sm">
+        <table class="table table-sm no-print">
           <thead>
             <tr>
               <th scope="col">Dosage Form</th>
@@ -178,7 +178,7 @@
             </tr>
           </tbody>
         </table>
-       <button (click)="onAddClick()" mat-button="filled">Add</button>
+       <button class="no-print" (click)="onAddClick()" mat-button="filled">Add</button>
       </div>
     </div>
   </div>

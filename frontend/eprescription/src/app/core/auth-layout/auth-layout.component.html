@@ -20,9 +20,12 @@
                             <mat-icon>note_add</mat-icon>
                             <a>Create New</a>
                         </a>
-                        <button mat-menu-item>
-                            <mat-icon>voicemail</mat-icon>
-                            <span>Check voice mail</span>
+                        <button mat-menu-item ngxPrint 
+          printSectionId="doPrint" 
+          printTitle="prescription"
+          [useExistingCss]="true">
+                            <mat-icon>print</mat-icon>
+                            <span>Print Now</span>
                         </button>
                         <a routerLink='/dashboard' mat-menu-item>
                             <mat-icon>dashboard</mat-icon>

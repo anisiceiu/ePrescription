@@ -3,11 +3,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { MaterialModule } from '../../shared/material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { NgxPrintModule } from 'ngx-print';
 
 @Component({
   selector: 'app-auth-layout',
-  imports: [RouterOutlet, MaterialModule, CommonModule,FormsModule, RouterLink],
+  imports: [RouterOutlet, MaterialModule, CommonModule,FormsModule, RouterLink,NgxPrintModule],
   templateUrl: './auth-layout.component.html',
   styleUrl: './auth-layout.component.css'
 })

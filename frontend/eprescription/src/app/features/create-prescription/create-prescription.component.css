@@ -3,9 +3,9 @@
       display: flex;
       align-items: center;
       padding: 0 1rem;
-      background:linear-gradient(to right,seagreen,lightseagreen);
+      background: linear-gradient(to right, seagreen, lightseagreen);
       color: white;
-      
+
     }
 
     .prescription-card {
@@ -15,8 +15,8 @@
       font-size: small;
     }
 
-    .text-mute{
-     color: white;
+    .text-mute {
+      color: white;
     }
 
     .zone-title {
@@ -38,20 +38,40 @@
       position: sticky;
       top: 0;
       background-color: lightseagreen;
-      color: #fff!important;
+      color: #fff !important;
     }
 
-.input-none{
-  border: none;
-  outline: none;
-  border-bottom: 1px solid seagreen;
-}
+    .input-none {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid seagreen;
+    }
 
-.rx-zone{
-  font-size: small;
-  font-family: Arial, Helvetica, sans-serif;
-}
+    .rx-zone {
+      font-size: small;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.medicine{
-  font-size: 14px;
-}
+    .medicine {
+      font-size: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    @page {
+      margin-top: 150px;
+      /* প্যাডের উপরের অংশ বাদ */
+      margin-bottom: 80px;
+      /* নিচের অংশ বাদ */
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+
+    th {
+      font-weight: normal;
+    }
