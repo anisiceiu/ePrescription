@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { map, Observable, of, startWith } from 'rxjs';
 import { HttpService } from '../../core/services/http.service';
+import { PrescriptionItem } from './models/PrescriptionItem';
 
 @Component({
   selector: 'app-create-prescription',
@@ -12,6 +13,8 @@ import { HttpService } from '../../core/services/http.service';
   styleUrl: './create-prescription.component.css'
 })
 export class CreatePrescriptionComponent {
+  prescriptionItems:PrescriptionItem[]=[];
+
   patientForm: FormGroup;
   data = {
     chiefComplaints: [
@@ -310,5 +313,22 @@ export class CreatePrescriptionComponent {
     let instruction = this.instructionCtrl.value;
     let content = `${dosageForm} ${drug.name} (${drug.strength}${drug.unit}) ${frequency} ${duration} ${instruction}`;
     console.log(content);
+
+    let item:PrescriptionItem = {
+      prescriptionId: 0,
+      id: 0,
+      Dose: `${drug.strength}${drug.unit}`,
+      Form: dosageForm!,
+      drugName:drug.name,
+      drugId: drug.id,
+      frequency: frequency!,
+      duration: duration!,
+      instructions: instruction!
+    }
+
+    if (!this.prescriptionItems.find(i=> i.drugId == item.drugId)) {
+        this.prescriptionItems.push(item);
+      }
+    
   }
 }

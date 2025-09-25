@@ -118,8 +118,11 @@
     <div class="col-md-9">
       <div class="zone-title"><span class="rx-symbol">℞</span></div>
       <div>
-        <ol>
-         <li>Tablet Aspiren 80mg </li>
+        <ol class="medicine">
+         <li *ngFor="let item of prescriptionItems">
+          {{item.Form}} {{item.drugName}} {{item.Dose}} <br/>
+          {{item.frequency}} {{item.instructions}} {{item.duration}}
+        </li>
         </ol>
         <table class="table table-sm">
           <thead>
