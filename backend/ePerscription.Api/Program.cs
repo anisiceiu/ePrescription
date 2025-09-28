@@ -70,6 +70,8 @@ namespace ePerscription.Api
                 cfg.CreateMap<FrequencyDto, Domain.Entities.Frequency>().ReverseMap();
                 cfg.CreateMap<InstructionDto, Domain.Entities.Instruction>().ReverseMap();
                 cfg.CreateMap<StrengthDto, Domain.Entities.Strength>().ReverseMap();
+                cfg.CreateMap<PrescriptionDto, Domain.Entities.Prescription>().ReverseMap();
+                cfg.CreateMap<PrescriptionItemDto, Domain.Entities.PrescriptionItem>().ReverseMap();
             });
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
