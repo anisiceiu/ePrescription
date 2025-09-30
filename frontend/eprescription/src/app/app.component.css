@@ -1,0 +1,11 @@
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(180deg,azure,lightblue);
+    padding:3px 3px;
+}
+
+.mat-button-toggle-appearance-standard .mat-button-toggle-label-content
+{
+   padding: 0 3px;
+}

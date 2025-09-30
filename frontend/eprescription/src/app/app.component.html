@@ -1,1 +1,14 @@
- <router-outlet></router-outlet>
+<nav class="fixed-top">
+    <div class="nav-wrapper">
+        <div>
+            ePrescription
+        </div>
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle (click)="toggleLanguage(true)" value="EN">English</mat-button-toggle>
+            <mat-button-toggle (click)="toggleLanguage(false)" value="BN">বাংলা</mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+</nav>
+
+
+<router-outlet></router-outlet>

@@ -8,12 +8,12 @@
       overflow: hidden;
     }
     .sidebar{
-      background:linear-gradient(to top,seagreen,lightseagreen);
+      background:linear-gradient(to top,azure,lightblue);
     }
 
     .contacts {
       overflow-y: auto;
-      height: 60vh;
+      height: 50vh;
     }
 
     .chat-panel {

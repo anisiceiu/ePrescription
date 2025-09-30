@@ -10,6 +10,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   exports: [
@@ -23,7 +24,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatButtonToggleModule,
     MatDividerModule,
     MatAutocompleteModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule,
   ]
 })
 export class MaterialModule {}
