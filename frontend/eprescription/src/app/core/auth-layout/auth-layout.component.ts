@@ -7,7 +7,7 @@ import { NgxPrintModule } from 'ngx-print';
 
 @Component({
   selector: 'app-auth-layout',
-  imports: [RouterOutlet, MaterialModule, CommonModule,FormsModule, RouterLink,NgxPrintModule],
+  imports: [RouterOutlet, MaterialModule, CommonModule,FormsModule,RouterLink,NgxPrintModule],
   templateUrl: './auth-layout.component.html',
   styleUrl: './auth-layout.component.css'
 })

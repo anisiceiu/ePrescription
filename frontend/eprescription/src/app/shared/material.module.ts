@@ -26,6 +26,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatAutocompleteModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatToolbarModule
   ]
 })
 export class MaterialModule {}

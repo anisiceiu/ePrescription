@@ -9,6 +9,7 @@
     }
     .sidebar{
       background:linear-gradient(to top,azure,lightblue);
+      margin-top: 30px;
     }
 
     .contacts {
@@ -23,6 +24,7 @@
       height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
+      margin-top: 30px;
     }
 
     .messages {

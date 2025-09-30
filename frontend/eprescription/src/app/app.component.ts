@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MaterialModule } from './shared/material.module';
+import { FormsModule } from '@angular/forms';
+import { NgxPrintModule } from 'ngx-print';
 
 @Component({
   selector: 'app-root',
     standalone: true,
-  imports: [RouterOutlet,TranslateModule,MaterialModule],
+  imports: [RouterOutlet,TranslateModule,MaterialModule,FormsModule,NgxPrintModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,5 +35,10 @@ export class AppComponent {
     this.isEnglish = isEnglish;
     this.translate.use(isEnglish ? 'en' : 'bn');
     localStorage.setItem('language', this.currentLang);
+  }
+
+   logout() {
+    localStorage.clear();
+    location.href = '/login';
   }
 }

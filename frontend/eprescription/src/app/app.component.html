@@ -1,14 +1,18 @@
 <nav class="fixed-top">
     <div class="nav-wrapper">
-        <div>
-            ePrescription
-        </div>
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle (click)="toggleLanguage(true)" value="EN">English</mat-button-toggle>
-            <mat-button-toggle (click)="toggleLanguage(false)" value="BN">বাংলা</mat-button-toggle>
-        </mat-button-toggle-group>
+
+            <div class="topbar-item">
+                ePrescription
+            </div>
+            <div class="topbar-item">
+                <mat-button-toggle-group name="fontStyle" [(ngModel)]="currentLang" aria-label="Font Style">
+                    <mat-button-toggle (click)="toggleLanguage(true)" value="en">English</mat-button-toggle>
+                    <mat-button-toggle (click)="toggleLanguage(false)" value="bn">বাংলা</mat-button-toggle>
+                </mat-button-toggle-group>
+            </div>
     </div>
 </nav>
 
-
+<div style="margin-top: 15px;">
 <router-outlet></router-outlet>
+</div>

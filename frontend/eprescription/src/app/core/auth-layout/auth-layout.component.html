@@ -2,19 +2,18 @@
     <div class="row g-0 h-100">
         <!-- Sidebar -->
         <div id="sidebar" class="col-12 col-md-4 col-lg-3 border-end sidebar">
-            <div class="d-flex align-items-center justify-content-between p-3">
-                <div class="d-flex align-items-center gap-2">
+            <div class="d-flex align-items-center justify-content-end p-3">
+             <!--    <div class="d-flex align-items-center gap-2">
                     <img src="/images/logo.jpg" width="48px" height="48px" alt="me" class="avatar">
                     <div>
                         <div class="fw-bold text-warning">Administrator</div>
                         <small class="text-warning">Available</small>
                     </div>
-                </div>
+                </div> -->
                 <div>
                     <button class="btn btn-sm btn-light me-1" matIconButton [matMenuTriggerFor]="menu"><i
                             class="bi bi-three-dots-vertical"></i></button>
-                    <!-- <button class="btn btn-sm btn-light" id="sidebarClose" title="Close" style="display:none"><i
-                class="bi bi-x"></i></button> -->
+      
                     <mat-menu #menu="matMenu">
                         <a routerLink='/create-precription' mat-menu-item>
                             <mat-icon>note_add</mat-icon>

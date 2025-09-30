@@ -1,3 +1,6 @@
 {
- "WELCOME_MESSAGE": "আমাদের অ্যাপে স্বাগতম!"
+ "WELCOME_MESSAGE": "আমাদের অ্যাপে স্বাগতম!",
+ "LOGIN":"লগইন করুন",
+ "EMAIL_ADDRESS":"ইমেইল",
+ "PASSWORD":"পাসওয়ার্ড"
 }

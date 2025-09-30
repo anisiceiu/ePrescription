@@ -1,3 +1,6 @@
 {
- "WELCOME_MESSAGE": "Welcome to our app!"
+ "WELCOME_MESSAGE": "Welcome to our app!",
+ "LOGIN":"Login",
+ "EMAIL_ADDRESS":"Email Address",
+ "PASSWORD":"Password"
 }
