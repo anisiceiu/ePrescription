@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators, F
 import { map, Observable, of, startWith } from 'rxjs';
 import { HttpService } from '../../core/services/http.service';
 import { PrescriptionItem } from './models/PrescriptionItem';
+import { PrescriptionModel } from './models/prescription-model';
 
 @Component({
   selector: 'app-create-prescription',
@@ -131,27 +132,29 @@ export class CreatePrescriptionComponent {
   ccControl = new FormControl('');
   ccOptions: string[] = this.data.chiefComplaints;
   filteredCC: Observable<string[]> = null!;
-  ccList: string[] = [];
+
 
   ohControl = new FormControl('');
   ohOptions: string[] = this.data.otherHistory;
   filteredOH: Observable<string[]> = null!;
-  ohList: string[] = [];
+ 
 
   oeControl = new FormControl('');
   oeOptions: string[] = this.data.onExamination;
   filteredOE: Observable<string[]> = null!;
-  oeList: string[] = [];
+ 
 
   invControl = new FormControl('');
   invOptions: string[] = this.data.investigations;
   filteredInv: Observable<string[]> = null!;
-  invList: string[] = [];
+  
 
   advControl = new FormControl('');
   advOptions: string[] = this.data.advice;
   filteredAdv: Observable<string[]> = null!;
-  advList: string[] = [];
+  
+
+  prescription:PrescriptionModel=null!;
 
   constructor(private fb: FormBuilder, private http: HttpService) {
     this.patientForm = this.fb.group({
@@ -168,7 +171,15 @@ export class CreatePrescriptionComponent {
     http.get<any[]>('Drugs').subscribe(data => {
       this.drugs = data;
     });
-
+    
+    this.prescription={
+       chiefComplaint:[],
+       otherPastHistory:[],
+       onExamination:[],
+       investigation:[],
+       advice:[],
+       rx:[]
+    };
   }
 
   ngOnInit() {
@@ -245,34 +256,34 @@ export class CreatePrescriptionComponent {
   onOptionSelected(event: any, type: string) {
 
     if (type == "CC") {
-      if (!this.ccList.includes(event.option.value)) {
-        this.ccList.push(event.option.value);
+      if (!this.prescription.chiefComplaint.includes(event.option.value)) {
+        this.prescription.chiefComplaint.push(event.option.value);
       }
       this.ccControl.setValue(null);
     }
     else if (type == "OH") {
-      if (!this.ohList.includes(event.option.value)) {
-        this.ohList.push(event.option.value);
+      if (!this.prescription.otherPastHistory.includes(event.option.value)) {
+        this.prescription.otherPastHistory.push(event.option.value);
       }
       this.ohControl.setValue(null);
     }
 
     else if (type == "OE") {
-      if (!this.oeList.includes(event.option.value)) {
-        this.oeList.push(event.option.value);
+      if (!this.prescription.onExamination.includes(event.option.value)) {
+        this.prescription.onExamination.push(event.option.value);
       }
       this.oeControl.setValue(null);
     }
 
     else if (type == "INV") {
-      if (!this.invList.includes(event.option.value)) {
-        this.invList.push(event.option.value);
+      if (!this.prescription.investigation.includes(event.option.value)) {
+        this.prescription.investigation.push(event.option.value);
       }
       this.invControl.setValue(null);
     }
     else if (type == "ADV") {
-      if (!this.advList.includes(event.option.value)) {
-        this.advList.push(event.option.value);
+      if (!this.prescription.advice.includes(event.option.value)) {
+        this.prescription.advice.push(event.option.value);
       }
       this.advControl.setValue(null);
     }
@@ -303,6 +314,42 @@ export class CreatePrescriptionComponent {
   frequencyCtrl = new FormControl('');
   instructionCtrl = new FormControl('');
   durationCtrl = new FormControl('');
+
+  deleteItem(type:string,item:string)
+  {
+     if (type == "CC") {
+      if (this.prescription.chiefComplaint.includes(item)) {
+        this.prescription.chiefComplaint=this.prescription.chiefComplaint.filter(c=> c != item);
+      }
+      
+    }
+    else if (type == "OH") {
+      if (this.prescription.otherPastHistory.includes(item)) {
+        this.prescription.otherPastHistory=this.prescription.otherPastHistory.filter(c=> c != item);
+      }
+      
+    }
+
+    else if (type == "OE") {
+      if (this.prescription.onExamination.includes(item)) {
+         this.prescription.onExamination=this.prescription.onExamination.filter(c=> c != item);
+      }
+      
+    }
+
+    else if (type == "INV") {
+      if (this.prescription.investigation.includes(item)) {
+        this.prescription.investigation=this.prescription.investigation.filter(c=> c != item);
+      }
+      
+    }
+    else if (type == "ADV") {
+      if (this.prescription.advice.includes(item)) {
+        this.prescription.advice=this.prescription.advice.filter(c=> c != item);
+      }
+      
+    }
+  }
 
   onAddClick()
   {

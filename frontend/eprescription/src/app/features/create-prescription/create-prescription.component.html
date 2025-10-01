@@ -50,7 +50,7 @@
         <div>
           <div class="zone-title">C/C (Chief Complaint)</div>
           <ul>
-            <li *ngFor="let cc of ccList">{{cc}}</li>
+            <li *ngFor="let cc of prescription.chiefComplaint"><i (click)="deleteItem('CC',cc)" class="bi bi-trash text-danger"></i> {{cc}} </li>
           </ul>
           <input type="text" placeholder="Search for a CC" [formControl]="ccControl" [matAutocomplete]="auto1"
             class="example-input input-none no-print">
@@ -63,7 +63,7 @@
         <div>
           <div class="zone-title">O/H (Other / Past History)</div>
           <ul>
-            <li *ngFor="let oh of ohList">{{oh}}</li>
+            <li *ngFor="let oh of prescription.otherPastHistory"><i (click)="deleteItem('OH',oh)" class="bi bi-trash text-danger"></i>{{oh}} </li>
           </ul>
           <input type="text" placeholder="Search for a OH" [formControl]="ohControl" [matAutocomplete]="auto2"
             class="example-input input-none no-print">
@@ -76,7 +76,7 @@
         <div>
           <div class="zone-title">O/E (On Examination)</div>
           <ul>
-            <li *ngFor="let oe of oeList">{{oe}}</li>
+            <li *ngFor="let oe of prescription.onExamination"><i (click)="deleteItem('OE',oe)" class="bi bi-trash text-danger"></i>{{oe}} </li>
           </ul>
           <input type="text" placeholder="Search for a OE" [formControl]="oeControl" [matAutocomplete]="auto3"
             class="example-input input-none no-print">
@@ -89,7 +89,7 @@
         <div>
           <div class="zone-title">Investigation</div>
           <ul>
-            <li *ngFor="let inv of invList">{{inv}}</li>
+            <li *ngFor="let inv of prescription.investigation"><i (click)="deleteItem('INV',inv)" class="bi bi-trash text-danger"></i>{{inv}} </li>
           </ul>
           <input type="text" placeholder="Search for a Investigation" [formControl]="invControl"
             [matAutocomplete]="auto4" class="example-input input-none no-print">
@@ -102,7 +102,7 @@
         <div>
           <div class="zone-title">Advice</div>
           <ul>
-            <li *ngFor="let adv of advList">{{adv}}</li>
+            <li *ngFor="let adv of prescription.advice"><i (click)="deleteItem('ADV',adv)" class="bi bi-trash text-danger"></i>{{adv}} </li>
           </ul>
           <input type="text" placeholder="Search for a Advice" [formControl]="advControl" [matAutocomplete]="auto5"
             class="example-input input-none no-print">

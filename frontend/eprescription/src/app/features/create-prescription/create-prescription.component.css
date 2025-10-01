@@ -79,3 +79,7 @@
     .mat-mdc-option {
       font-size: small!important;
     }
+
+    ul li{
+      list-style: none;
+    }
