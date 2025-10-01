@@ -2,5 +2,7 @@
  "WELCOME_MESSAGE": "আমাদের অ্যাপে স্বাগতম!",
  "LOGIN":"লগইন করুন",
  "EMAIL_ADDRESS":"ইমেইল",
- "PASSWORD":"পাসওয়ার্ড"
+ "PASSWORD":"পাসওয়ার্ড",
+ "FORGOT_PASSWORD":"পাসওয়ার্ড ভুলে গেছেন",
+ "REMEMBER_PASSWORD":"পাসওয়ার্ড মনে রাখুন"
 }

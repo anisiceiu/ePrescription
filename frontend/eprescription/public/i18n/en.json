@@ -2,5 +2,7 @@
  "WELCOME_MESSAGE": "Welcome to our app!",
  "LOGIN":"Login",
  "EMAIL_ADDRESS":"Email Address",
- "PASSWORD":"Password"
+ "PASSWORD":"Password",
+ "FORGOT_PASSWORD":"Forgot Password",
+ "REMEMBER_PASSWORD":"Remember Password"
 }
